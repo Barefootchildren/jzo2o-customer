@@ -7,6 +7,7 @@ import com.jzo2o.customer.model.dto.request.AddressBookPageQueryReqDTO;
 import com.jzo2o.customer.model.dto.request.AddressBookUpsertReqDTO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -27,4 +28,16 @@ public interface IAddressBookService extends IService<AddressBook> {
      * @return 地址编码
      */
     List<AddressBookResDTO> getByUserIdAndCity(Long userId, String cityCode);
+
+    void addAddressBook(AddressBookUpsertReqDTO reqDTO);
+
+    PageResult<AddressBookResDTO> getPage(AddressBookPageQueryReqDTO addressBookPageQueryReqDTO);
+
+    AddressBookResDTO selectById(@NotNull(message = "id不能为空") Long id);
+
+    void updateAddressBookById(@NotNull(message = "id不能为空") Long id,AddressBookUpsertReqDTO addressBookUpsertReqDTO);
+
+    void updateDefault(@NotNull(message = "id不能为空") Long id, @NotNull(message = "flag不能为空") Integer flag);
+
+    AddressBookResDTO getDefaultAddress();
 }

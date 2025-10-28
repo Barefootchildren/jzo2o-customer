@@ -1,0 +1,91 @@
+package com.jzo2o.customer.model.domain;
+
+import com.baomidou.mybatisplus.annotation.*;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+/**
+ * <p>
+ * 银行账户实体
+ * </p>
+ *
+ * @author itcast
+ * @since 2023-09-06
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName("bank_account")
+public class BankAccount implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 服务人员/机构id
+     */
+    private Long id;
+
+    /**
+     * 类型，2：服务人员，3：服务机构
+     */
+    private Integer type;
+
+    /**
+     * 户名
+     */
+    private String name;
+
+    /**
+     * 银行名称
+     */
+    private String bankName;
+
+    /**
+     * 省
+     */
+    private String province;
+
+    /**
+     * 市
+     */
+    private String city;
+
+    /**
+     * 区
+     */
+    private String district;
+
+    /**
+     * 网点
+     */
+    private String branch;
+
+    /**
+     * 银行账号
+     */
+    private String account;
+
+    /**
+     * 开户证明
+     */
+    private String accountCertification;
+    /**
+     * 创建时间
+     */
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+    /**
+     * 更新时间
+     */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updateTime;
+    /**
+     * 是否已删除，0：未删除，1：已删除
+     */
+    private Integer isDeleted;
+}

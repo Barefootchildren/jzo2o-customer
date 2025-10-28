@@ -73,5 +73,7 @@ logging:
   level:
     com.jzo2o: debug
     org.mongodb.driver: info
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: TRACE
 feign:
   enable: true
